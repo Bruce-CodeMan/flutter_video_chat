@@ -38,6 +38,7 @@ dependencies:
 
   # GetX
   get: ^4.6.1
+  flutter_screenutil: ^5.9.0
 
 dev_dependencies:
   flutter_test:

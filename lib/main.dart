@@ -1,7 +1,13 @@
+// Import the core libraries
 import 'package:flutter/material.dart';
+
+// Import the libraries from the external
+import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+// Import the custom pages
 import 'package:flutter_video_chat/common/routes/pages.dart';
 
-import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,15 +19,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(360, 780),
+      builder: (context, child) => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        initialRoute: AppPages.initial,
+        getPages: AppPages.routes,
       ),
-      initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
     );
   }
 }
