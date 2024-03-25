@@ -15,7 +15,7 @@ class WelcomeController extends GetxController {
   void onReady(){
     super.onReady();
     Future.delayed(
-      const Duration(seconds: 3), () => Get.offAllNamed(AppRoutes.SIGN_IN),
+      const Duration(seconds: 1), () => Get.offAllNamed(AppRoutes.MESSAGE),
     );
   }
 }

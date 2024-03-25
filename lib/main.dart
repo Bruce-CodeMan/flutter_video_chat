@@ -8,8 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 // Import the custom pages
 import 'package:flutter_video_chat/common/routes/pages.dart';
 
+import 'global.dart';
 
-void main() {
+
+void main() async{
+  await Global.init();
   runApp(const MyApp());
 }
 
