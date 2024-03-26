@@ -23,7 +23,7 @@ class AppPages {
       name: AppRoutes.MESSAGE,
       page: () => const MessagePage(),
       binding: MessageBinding(),
-      middlewares: [RouteAuthMiddleware(priority: 1)]
+      // middlewares: [RouteAuthMiddleware(priority: 1)]
     ),
     GetPage(
       name: AppRoutes.SIGN_IN,

@@ -137,7 +137,7 @@ class SignInPage extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primarySecondBackground,
+      backgroundColor: AppColors.primarySecondaryBackground,
       body: Center(
         child: Column(
           children: [
