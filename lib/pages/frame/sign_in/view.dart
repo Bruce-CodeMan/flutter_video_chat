@@ -33,6 +33,7 @@ class SignInPage extends GetView<SignInController> {
       onTap: (){
         // TODO operation of the login
         debugPrint("login: $loginType");
+        controller.handleSignIn(logo);
       },
       child: Container(
         width: 295.w,
