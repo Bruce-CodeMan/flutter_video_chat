@@ -51,6 +51,6 @@ class SignInController extends GetxController {
   }
 
   asyncPostAllData() {
-    Get.offAllNamed(AppRoutes.MESSAGE);
+    Get.offAllNamed(AppRoutes.message);
   }
 }

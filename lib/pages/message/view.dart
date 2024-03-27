@@ -49,7 +49,7 @@ class MessagePage extends GetView<MessageController> {
               children: [
                 GestureDetector(
                   onTap: (){
-                    // TODO Need to implement to jumpTo profile page
+                    controller.goProfile();
                   },
                   child: Container(
                     width: 44.h,

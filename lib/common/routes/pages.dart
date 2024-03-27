@@ -12,27 +12,27 @@ import 'package:flutter_video_chat/pages/frame/sign_in/index.dart';
 import 'package:flutter_video_chat/pages/profile/index.dart';
 
 class AppPages {
-  static const initial = AppRoutes.INITIAL;
+  static const initial = AppRoutes.initial;
 
   static final List<GetPage> routes = [
     GetPage(
-      name: AppRoutes.INITIAL,
+      name: AppRoutes.initial,
       page: () => const WelcomePage(),
       binding: WelcomeBinding()
     ),
     GetPage(
-      name: AppRoutes.MESSAGE,
+      name: AppRoutes.message,
       page: () => const MessagePage(),
       binding: MessageBinding(),
       // middlewares: [RouteAuthMiddleware(priority: 1)]
     ),
     GetPage(
-      name: AppRoutes.SIGN_IN,
+      name: AppRoutes.signIn,
       page: () => const SignInPage(),
       binding: SignInBinding(),
     ),
     GetPage(
-      name: AppRoutes.PROFILE,
+      name: AppRoutes.profile,
       page: () => const ProfilePage(),
       binding: ProfileBinding()
     )

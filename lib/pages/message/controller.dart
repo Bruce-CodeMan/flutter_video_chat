@@ -11,6 +11,6 @@ class MessageController extends GetxController {
   final state = MessageState();
 
   void goProfile() async{
-    await Get.toNamed(AppRoutes.PROFILE);
+    await Get.toNamed(AppRoutes.profile);
   }
 }
