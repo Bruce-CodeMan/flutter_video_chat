@@ -7,8 +7,9 @@ import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 // Import the custom files
-import 'package:flutter_video_chat/common/style/color.dart';
+import 'package:flutter_video_chat/common/style/style.dart';
 import 'package:flutter_video_chat/pages/message/controller.dart';
+import 'package:flutter_video_chat/common/values/values.dart';
 
 class MessagePage extends GetView<MessageController> {
   const MessagePage({super.key});
@@ -67,23 +68,23 @@ class MessagePage extends GetView<MessageController> {
                       ]
                     ),
                     child: controller.state.headDetail.value.avatar == null
-                              ? const Image(image: AssetImage('assets/images/account_header.png'))
-                              : CachedNetworkImage(
-                                  imageUrl: controller.state.headDetail.value.avatar!,
-                                  height: 44.w,
-                                  width: 44.w,
-                                  imageBuilder: (context, imageProvider) =>
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(Radius.circular(22.w)),
-                                        image: DecorationImage(
-                                          image: imageProvider, fit: BoxFit.fill
-                                        ),
-                                      ),
-                                    ),
-                                  errorWidget: (context, url, error) => const Image(
-                                    image: AssetImage('assets/images/account_header.png'),
-                                  ),
+                      ? const Image(image: AssetImage(Asset.accountHeaderPath))
+                      : CachedNetworkImage(
+                          imageUrl: controller.state.headDetail.value.avatar!,
+                          height: 44.w,
+                          width: 44.w,
+                          imageBuilder: (context, imageProvider) =>
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(22.w)),
+                                image: DecorationImage(
+                                  image: imageProvider, fit: BoxFit.fill
+                                ),
+                              ),
+                            ),
+                          errorWidget: (context, url, error) => const Image(
+                            image: AssetImage(Asset.accountHeaderPath),
+                          ),
                     )
                   ),
                 ),

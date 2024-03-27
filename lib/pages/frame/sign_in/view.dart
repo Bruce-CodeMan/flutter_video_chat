@@ -9,6 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_video_chat/pages/frame/sign_in/controller.dart';
 // Import the custom style(e.g. , background color & text color)
 import 'package:flutter_video_chat/common/style/style.dart';
+// Import the custom values
+import 'package:flutter_video_chat/common/values/values.dart';
 
 class SignInPage extends GetView<SignInController> {
   const SignInPage({super.key});
@@ -59,7 +61,7 @@ class SignInPage extends GetView<SignInController> {
                 ? Container()
                 : Container(
               padding: EdgeInsets.only(left: 40.w, right: 30.w),
-              child: Image.asset("assets/icons/$logo.png"),
+              child: Image.asset(Asset.getIconPath(logo)),
             ),
             Text(
               'Sign in with $loginType',
