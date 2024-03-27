@@ -1,10 +1,10 @@
 // Import the core library
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 // Import the libraries from the external
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 // Import the custom files
 import 'package:flutter_video_chat/common/style/color.dart';
@@ -48,6 +48,9 @@ class MessagePage extends GetView<MessageController> {
             Stack(
               children: [
                 GestureDetector(
+                  onTap: (){
+                    // TODO Need to implement to jumpTo profile page
+                  },
                   child: Container(
                     width: 44.h,
                     height: 44.h,
@@ -82,6 +85,22 @@ class MessagePage extends GetView<MessageController> {
                                     image: AssetImage('assets/images/account_header.png'),
                                   ),
                     )
+                  ),
+                ),
+                Positioned(
+                  bottom: 5.w,
+                  right: 0.w,
+                  height: 14.w,
+                  child: Container(
+                    width: 14.w,
+                    height: 14.w,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 2.w, color: AppColors.primaryElementText),
+                      color: controller.state.headDetail.value.online == 1
+                        ? AppColors.primaryElementStatus
+                        : AppColors.primarySecondaryElementText,
+                      borderRadius: BorderRadius.all(Radius.circular(12.w))
+                    ),
                   ),
                 )
               ],

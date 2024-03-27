@@ -16,4 +16,5 @@ class AppColors {
   static const Color secondaryText = Color(0xFF74788D);
 
   static const Color accentColor = Color(0xFF5C78FF);
+  static const Color primaryElementStatus = Color.fromARGB(255, 88, 174, 127);
 }
