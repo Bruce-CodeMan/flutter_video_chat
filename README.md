@@ -1,13 +1,16 @@
-<!--
- * @Date: 2024-03-22 09:44:59
- * @Author: Bruce Hsu
- * @Description: 
--->
 # flutter_video_chat
+
+<p>
+<img src="./images/flutter.svg" width="30">
+<img src="./images/firebase.svg" width="30">
+<img src="./images/flutter_version.svg">
+<img src="./images/dart_version.svg">
+</p>
 
 Developing a Flutter-based video chat application provides a seamless and efficient way to communicate
 Through text, voice and video calls
 Intergrate with popular authentication services such as Google, Apple and Facebook for a secure.
+
 
 ## Getting Started
 
