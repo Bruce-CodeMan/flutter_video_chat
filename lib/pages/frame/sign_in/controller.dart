@@ -10,6 +10,8 @@ import 'package:get/get.dart';
 import 'package:flutter_video_chat/pages/frame/sign_in/state.dart';
 // Import the custom entities
 import 'package:flutter_video_chat/common/entities/entities.dart';
+// Import the custom store
+import 'package:flutter_video_chat/common/store/store.dart';
 
 class SignInController extends GetxController {
   SignInController();
@@ -51,6 +53,11 @@ class SignInController extends GetxController {
   }
 
   asyncPostAllData() {
+    /*
+      1. save in the database
+      2. save in the localStorage
+     */
+    UserStore.to.setIsLogin = true;
     Get.offAllNamed(AppRoutes.message);
   }
 }

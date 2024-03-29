@@ -48,6 +48,11 @@ dependencies:
   firebase_core: ^2.27.1
 
   google_sign_in: ^6.2.1
+  dio: ^4.0.0
+  cookie_jar: ^3.0.1
+  dio_cookie_manager: ^2.0.0
+
+  flutter_easyloading: ^3.0.3
 
 
 dev_dependencies:

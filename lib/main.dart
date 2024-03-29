@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Import the libraries from the external
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 // Import the custom pages
 import 'package:flutter_video_chat/common/routes/pages.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.light,
         initialRoute: AppPages.initial,
         getPages: AppPages.routes,
+        builder: EasyLoading.init(),
       ),
     );
   }
