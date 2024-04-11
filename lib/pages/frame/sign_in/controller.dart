@@ -2,9 +2,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_video_chat/common/apis/apis.dart';
 import 'package:flutter_video_chat/common/routes/names.dart';
 import 'package:flutter_video_chat/common/utils/http.dart';
+import 'package:flutter_video_chat/common/widgets/toast.dart';
 
 // Import the libraries from the external
 import 'package:google_sign_in/google_sign_in.dart';
@@ -62,7 +64,19 @@ class SignInController extends GetxController {
       2. save in the localStorage
      */
     // UserStore.to.setIsLogin = true;
-    await UserAPI.login(params: loginRequestEntity);
+    EasyLoading.show(
+      indicator: const CircularProgressIndicator(),
+      maskType: EasyLoadingMaskType.clear,
+      dismissOnTap: true
+    );
+    var result = await UserAPI.login(params: loginRequestEntity);
+    if(result.code == 200) {
+      await UserStore.to.saveProfile(result.data!);
+      EasyLoading.dismiss();
+    }else{
+      EasyLoading.dismiss();
+      toastInfo(msg: "Internal Error");
+    }
     Get.offAllNamed(AppRoutes.message);
   }
 }

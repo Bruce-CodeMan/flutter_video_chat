@@ -10,6 +10,7 @@ import 'package:flutter_video_chat/pages/frame/welcome/index.dart';
 import 'package:flutter_video_chat/pages/message/index.dart';
 import 'package:flutter_video_chat/pages/frame/sign_in/index.dart';
 import 'package:flutter_video_chat/pages/profile/index.dart';
+import 'package:flutter_video_chat/pages/contact/index.dart';
 
 class AppPages {
   static const initial = AppRoutes.initial;
@@ -35,6 +36,11 @@ class AppPages {
       name: AppRoutes.profile,
       page: () => const ProfilePage(),
       binding: ProfileBinding()
+    ),
+    GetPage(
+      name: AppRoutes.contact,
+      page: () => const ContactPage(),
+      binding: ContactBinding()
     )
   ];
 }

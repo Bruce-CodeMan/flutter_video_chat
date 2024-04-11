@@ -69,20 +69,45 @@ class LoginRequestEntity {
 }
 
 class TokenEntity {
+  String? name;
+  String? avatar;
+  String? description;
+  int? online;
+  int? type;
   String? accessToken;
   String? refreshToken;
 
   TokenEntity({
     this.accessToken,
-    this.refreshToken
+    this.refreshToken,
+    this.type,
+    this.online,
+    this.description,
+    this.avatar,
+    this.name
   });
 
   factory TokenEntity.fromJson(Map<String, dynamic> json) {
     return TokenEntity(
       accessToken: json["access_token"],
-      refreshToken: json["refresh_token"]
+      refreshToken: json["refresh_token"],
+      name: json["name"],
+      avatar: json["avatar"],
+      description: json["description"],
+      online: json["online"],
+      type: json["type"]
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    "accessToken": accessToken,
+    "name": name,
+    "description": description,
+    "avatar": avatar,
+    "online": online,
+    "type": type,
+    "refreshToken": refreshToken
+  };
 }
 
 class LoginResponseEntity {

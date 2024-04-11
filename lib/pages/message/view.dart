@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Import the libraries from the external
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_video_chat/common/routes/names.dart';
 import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -30,6 +31,35 @@ class MessagePage extends GetView<MessageController> {
                 ),
 
               ],
+            ),
+            Positioned(
+              right: 20.w,
+              bottom: 70.w,
+              height: 50.w,
+              width: 50.w,
+              child: GestureDetector(
+                child: Container(
+                  height: 50.w,
+                  width: 50.w,
+                  padding: EdgeInsets.all(10.w),
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryElement,
+                    borderRadius: BorderRadius.all(Radius.circular(40.w)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: const Offset(1, 1)
+                      )
+                    ]
+                  ),
+                  child: Image.asset(Asset.getIconPath("contact")),
+                ),
+                onTap: (){
+                  Get.toNamed(AppRoutes.contact);
+                },
+              ),
             )
           ],
         )
