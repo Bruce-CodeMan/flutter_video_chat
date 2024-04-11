@@ -1,7 +1,5 @@
-// login result
 class UserItem {
   String? accessToken;
-  String? token;
   String? name;
   String? description;
   String? avatar;
@@ -10,7 +8,6 @@ class UserItem {
 
   UserItem({
     this.accessToken,
-    this.token,
     this.name,
     this.description,
     this.avatar,
@@ -20,8 +17,7 @@ class UserItem {
 
   factory UserItem.fromJson(Map<String, dynamic> json) =>
       UserItem(
-        accessToken: json["accessToken"],
-        token: json["token"],
+        accessToken: json["access_token"],
         name: json["name"],
         description: json["description"],
         avatar: json["avatar"],
@@ -31,7 +27,6 @@ class UserItem {
 
   Map<String, dynamic> toJson() => {
     "accessToken": accessToken,
-    "token": token,
     "name": name,
     "description": description,
     "avatar": avatar,
@@ -68,7 +63,44 @@ class LoginRequestEntity {
     "email": email,
     "phone": phone,
     "avatar": avatar,
-    "open_id": openId,
+    "openId": openId,
     "online": online
   };
+}
+
+class TokenEntity {
+  String? accessToken;
+  String? refreshToken;
+
+  TokenEntity({
+    this.accessToken,
+    this.refreshToken
+  });
+
+  factory TokenEntity.fromJson(Map<String, dynamic> json) {
+    return TokenEntity(
+      accessToken: json["access_token"],
+      refreshToken: json["refresh_token"]
+    );
+  }
+}
+
+class LoginResponseEntity {
+  int? code;
+  String? message;
+  TokenEntity? data;
+
+  LoginResponseEntity({
+    this.code,
+    this.message,
+    this.data
+  });
+
+  factory LoginResponseEntity.fromJson(Map<String, dynamic> json) {
+    return LoginResponseEntity(
+        code: json["code"],
+        message: json["message"],
+        data: TokenEntity.fromJson(json["data"]),
+      );
+  }
 }

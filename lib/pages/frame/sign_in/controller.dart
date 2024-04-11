@@ -1,6 +1,10 @@
 // Import the core library
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_video_chat/common/apis/apis.dart';
 import 'package:flutter_video_chat/common/routes/names.dart';
+import 'package:flutter_video_chat/common/utils/http.dart';
 
 // Import the libraries from the external
 import 'package:google_sign_in/google_sign_in.dart';
@@ -41,7 +45,7 @@ class SignInController extends GetxController {
           loginRequestEntity.email = email;
           loginRequestEntity.openId = id;
           loginRequestEntity.type = 2;
-          asyncPostAllData();
+          asyncPostAllData(loginRequestEntity);
         }
         debugPrint("You are logging in with google");
       }else {
@@ -52,12 +56,13 @@ class SignInController extends GetxController {
     }
   }
 
-  asyncPostAllData() {
+  asyncPostAllData(LoginRequestEntity loginRequestEntity) async{
     /*
       1. save in the database
       2. save in the localStorage
      */
-    UserStore.to.setIsLogin = true;
+    // UserStore.to.setIsLogin = true;
+    await UserAPI.login(params: loginRequestEntity);
     Get.offAllNamed(AppRoutes.message);
   }
 }
