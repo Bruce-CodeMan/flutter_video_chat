@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_video_chat/pages/contact/widgets/contact_list.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -15,9 +17,11 @@ class ContactPage extends StatelessWidget {
           },
         ),
       ),
-      body: const Center(
-        child: Text("这是contact"),
-      ),
+      body: Container(
+        width: 360.w,
+        height: 780.h,
+        child: const ContactList(),
+      )
     );
   }
 }
