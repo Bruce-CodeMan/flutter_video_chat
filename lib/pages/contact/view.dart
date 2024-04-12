@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_video_chat/pages/contact/controller.dart';
 import 'package:flutter_video_chat/pages/contact/widgets/contact_list.dart';
+import 'package:get/get.dart';
 
-class ContactPage extends StatelessWidget {
+class ContactPage extends GetView<ContactController> {
   const ContactPage({super.key});
 
   @override

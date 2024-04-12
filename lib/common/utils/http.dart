@@ -193,7 +193,7 @@ class HttpUtil {
     var response = await dio.get(
       path,
       queryParameters: queryParameters,
-      options: options,
+      options: requestOptions,
       cancelToken: cancelToken
     );
 
