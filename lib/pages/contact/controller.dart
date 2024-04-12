@@ -27,10 +27,10 @@ class ContactController extends GetxController {
     );
     state.contactList.clear();
 
-    var result = await ContactAPI.postContact();
-    print("result: ${result.data!}");
+    var result = await ContactAPI.getContact();
     if(result.code == 200) {
-
+      state.contactList.addAll(result.data!);
     }
+    EasyLoading.dismiss();
   }
 }
