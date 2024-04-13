@@ -71,98 +71,103 @@ class ChatPage extends GetView<ChatController> {
   }
 
   Widget _buildBody () {
-      return SafeArea(
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 0.h,
-              child: Container(
-                width: 360.w,
-                padding: EdgeInsets.only(left: 20.w, bottom: 10.h, right: 20.w, top: 10.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 270.w,
-                      padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryBackground,
-                        borderRadius: BorderRadius.circular(5.w),
-                        border: Border.all(color: AppColors.primarySecondaryElementText)
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 220.w,
-                            child: TextField(
-                              keyboardType: TextInputType.multiline,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                hintText: "Message...",
-                                contentPadding: EdgeInsets.only(left: 15.w, top: 0, bottom: 0),
-                                border: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent)
-                                ),
-                                enabledBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent)
-                                ),
-                                disabledBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent)
-                                ),
-                                focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent)
-                                ),
-                                hintStyle: const TextStyle(
-                                  color: AppColors.primarySecondaryElementText
-                                )
-                              ),
-                            ),
+      return Obx(() => SafeArea(
+          child: Stack(
+            children: [
+              Positioned(
+                  bottom: 0.h,
+                  child: Container(
+                    width: 360.w,
+                    padding: EdgeInsets.only(left: 20.w, bottom: 10.h, right: 20.w, top: 10.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 270.w,
+                          padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
+                          decoration: BoxDecoration(
+                              color: AppColors.primaryBackground,
+                              borderRadius: BorderRadius.circular(5.w),
+                              border: Border.all(color: AppColors.primarySecondaryElementText)
                           ),
-                          GestureDetector(
-                            onTap: (){},
-                            child: SizedBox(
-                              width: 40.w,
-                              height: 40.h,
-                              child: Image.asset(Asset.getIconPath("send")),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    GestureDetector(
-                      child: Container(
-                        height: 40.w,
-                        width: 40.w,
-                        padding: EdgeInsets.all(8.w),
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryElement,
-                          borderRadius: BorderRadius.all(Radius.circular(40.w))
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 220.w,
+                                child: TextField(
+                                  keyboardType: TextInputType.multiline,
+                                  autofocus: false,
+                                  decoration: InputDecoration(
+                                      hintText: "Message...",
+                                      contentPadding: EdgeInsets.only(left: 15.w, top: 0, bottom: 0),
+                                      border: const OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent)
+                                      ),
+                                      enabledBorder: const OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent)
+                                      ),
+                                      disabledBorder: const OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent)
+                                      ),
+                                      focusedBorder: const OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent)
+                                      ),
+                                      hintStyle: const TextStyle(
+                                          color: AppColors.primarySecondaryElementText
+                                      )
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: (){},
+                                child: SizedBox(
+                                  width: 40.w,
+                                  height: 40.h,
+                                  child: Image.asset(Asset.getIconPath("send")),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                        child: Image.asset(Asset.getIconPath("add")),
-                      ),
-                    ),
+                        GestureDetector(
+                          onTap: (){
+                            controller.goMore();
+                          },
+                          child: Container(
+                            height: 40.w,
+                            width: 40.w,
+                            padding: EdgeInsets.all(8.w),
+                            decoration: BoxDecoration(
+                                color: AppColors.primaryElement,
+                                borderRadius: BorderRadius.all(Radius.circular(40.w))
+                            ),
+                            child: Image.asset(Asset.getIconPath("add")),
+                          ),
+                        ),
 
-                  ],
-                ),
-            )),
-            Positioned(
-                bottom: 70.h,
-                right: 20.w,
-                height: 200.h,
-                width: 40.w,
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    IconAction(iconName: "file"),
-                    IconAction(iconName: "photo"),
-                    IconAction(iconName: "call"),
-                    IconAction(iconName: "video"),
-                  ],
-                )
-            )
-          ],
-        )
-      );
+                      ],
+                    ),
+                  )),
+              controller.state.moreStatus.value
+                  ? Positioned(
+                  bottom: 70.h,
+                  right: 20.w,
+                  height: 200.h,
+                  width: 40.w,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      IconAction(iconName: "file"),
+                      IconAction(iconName: "photo"),
+                      IconAction(iconName: "call"),
+                      IconAction(iconName: "video"),
+                    ],
+                  )
+              )
+                  : Container()
+            ],
+          )
+      ));
   }
 
   @override

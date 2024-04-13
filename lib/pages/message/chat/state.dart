@@ -11,5 +11,5 @@ class ChatState {
   var toName = "".obs;
   var toAvatar = "".obs;
   var toOnline = "".obs;
-
+  RxBool moreStatus = false.obs;
 }
