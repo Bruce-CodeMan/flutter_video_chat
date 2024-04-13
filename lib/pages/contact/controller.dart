@@ -73,7 +73,7 @@ class ContactController extends GetxController {
           fromFirestore: Msg.fromFirestore,
           toFirestore: (Msg msg, options) => msg.toFirestore()
       ).add(msgData);
-      Get.offAndToNamed("/chat",
+      Get.toNamed("/chat",
           parameters: {
             "docsId": docsId.id,
             "toToken": item.id ?? "",
@@ -84,31 +84,29 @@ class ContactController extends GetxController {
       );
       print("----adding user in the document done----");
     }else {
+        if(fromMessages.docs.isNotEmpty) {
+          Get.toNamed("/chat",
+            parameters: {
+              "docsId": fromMessages.docs.first.id,
+              "toToken": item.id ?? "",
+              "toName": item.name ?? "",
+              "toAvatar": item.avatar ?? "",
+              "toOnline": item.online.toString()
+            }
+          );
+        }
+        if(toMessages.docs.isNotEmpty) {
+          Get.toNamed("/chat",
+            parameters: {
+              "docsId": toMessages.docs.first.id,
+              "toToken": item.id ?? "",
+              "toName": item.name ?? "",
+              "toAvatar": item.avatar ?? "",
+              "toOnline": item.online.toString()
+            }
+          );
+        }
       print("----users are older----");
     }
-    // }else{
-    //   if(fromMessages.docs.isNotEmpty) {
-    //     Get.offAndToNamed("/chat",
-    //       parameters: {
-    //         "docsId": fromMessages.docs.first.id,
-    //         "toToken": item.id ?? "",
-    //         "toName": item.name ?? "",
-    //         "toAvatar": item.avatar ?? "",
-    //         "toOnline": item.online.toString()
-    //       }
-    //     );
-    //   }
-    //   if(toMessages.docs.isNotEmpty) {
-    //     Get.offAndToNamed("/chat",
-    //       parameters: {
-    //         "docsId": toMessages.docs.first.id,
-    //         "toToken": item.id ?? "",
-    //         "toName": item.name ?? "",
-    //         "toAvatar": item.avatar ?? "",
-    //         "toOnline": item.online.toString()
-    //       }
-    //     );
-    //   }
-    // }
   }
 }
