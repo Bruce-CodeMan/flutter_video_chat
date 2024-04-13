@@ -69,6 +69,7 @@ class LoginRequestEntity {
 }
 
 class TokenEntity {
+  String? id;
   String? name;
   String? avatar;
   String? description;
@@ -78,6 +79,7 @@ class TokenEntity {
   String? refreshToken;
 
   TokenEntity({
+    this.id,
     this.accessToken,
     this.refreshToken,
     this.type,
@@ -89,6 +91,7 @@ class TokenEntity {
 
   factory TokenEntity.fromJson(Map<String, dynamic> json) {
     return TokenEntity(
+      id: json["id"],
       accessToken: json["access_token"],
       refreshToken: json["refresh_token"],
       name: json["name"],
@@ -106,7 +109,8 @@ class TokenEntity {
     "avatar": avatar,
     "online": online,
     "type": type,
-    "refreshToken": refreshToken
+    "refreshToken": refreshToken,
+    "id": id
   };
 }
 

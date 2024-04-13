@@ -54,6 +54,8 @@ dependencies:
 
   flutter_easyloading: ^3.0.3
   fluttertoast: ^8.2.4
+  firebase_storage: ^11.7.1
+  cloud_firestore: ^4.16.1
 
 
 dev_dependencies:
