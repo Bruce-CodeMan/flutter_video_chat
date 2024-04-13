@@ -4,3 +4,4 @@ export './user.dart';
 export './error.dart';
 export './msg.dart';
 export './contact.dart';
+export './msgContent.dart';

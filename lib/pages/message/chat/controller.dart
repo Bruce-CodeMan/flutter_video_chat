@@ -8,4 +8,17 @@ class ChatController extends GetxController {
   ChatController();
 
   final state = ChatState();
+  late String docsId;
+
+  @override
+  void onInit() {
+    super.onInit();
+    var data = Get.parameters;
+    print("data: $data");
+    docsId = data["docsId"]!;
+    state.toToken.value = data["toToken"] ?? "";
+    state.toName.value = data["toName"] ?? "";
+    state.toAvatar.value = data["toAvatar"] ?? "";
+    state.toOnline.value = data["toOnline"] ?? "";
+  }
 }

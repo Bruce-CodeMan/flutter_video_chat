@@ -73,15 +73,15 @@ class ContactController extends GetxController {
           fromFirestore: Msg.fromFirestore,
           toFirestore: (Msg msg, options) => msg.toFirestore()
       ).add(msgData);
-      // Get.offAndToNamed("/chat",
-      //     parameters: {
-      //       "docsId": docsId.id,
-      //       "toToken": item.id ?? "",
-      //       "toName": item.name ?? "",
-      //       "toAvatar": item.avatar ?? "",
-      //       "toOnline": item.online.toString()
-      //     }
-      // );
+      Get.offAndToNamed("/chat",
+          parameters: {
+            "docsId": docsId.id,
+            "toToken": item.id ?? "",
+            "toName": item.name ?? "",
+            "toAvatar": item.avatar ?? "",
+            "toOnline": item.online.toString()
+          }
+      );
       print("----adding user in the document done----");
     }else {
       print("----users are older----");
