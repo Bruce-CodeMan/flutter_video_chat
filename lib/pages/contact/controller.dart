@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_video_chat/common/routes/routes.dart';
 import 'package:get/get.dart';
 
 // Import the custom files
@@ -73,7 +74,7 @@ class ContactController extends GetxController {
           fromFirestore: Msg.fromFirestore,
           toFirestore: (Msg msg, options) => msg.toFirestore()
       ).add(msgData);
-      Get.toNamed("/chat",
+      Get.toNamed(AppRoutes.chat,
           parameters: {
             "docsId": docsId.id,
             "toToken": item.id ?? "",
@@ -85,7 +86,7 @@ class ContactController extends GetxController {
       print("----adding user in the document done----");
     }else {
         if(fromMessages.docs.isNotEmpty) {
-          Get.toNamed("/chat",
+          Get.toNamed(AppRoutes.chat,
             parameters: {
               "docsId": fromMessages.docs.first.id,
               "toToken": item.id ?? "",
@@ -96,7 +97,7 @@ class ContactController extends GetxController {
           );
         }
         if(toMessages.docs.isNotEmpty) {
-          Get.toNamed("/chat",
+          Get.toNamed(AppRoutes.chat,
             parameters: {
               "docsId": toMessages.docs.first.id,
               "toToken": item.id ?? "",

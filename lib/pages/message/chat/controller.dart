@@ -1,4 +1,5 @@
 // Import the library from the external
+import 'package:flutter_video_chat/common/routes/names.dart';
 import 'package:get/get.dart';
 
 // Import the custom files
@@ -12,6 +13,18 @@ class ChatController extends GetxController {
 
   void goMore() {
     state.moreStatus.value = state.moreStatus.value ? false : true;
+  }
+
+  void callAudio() {
+    state.moreStatus.value = false;
+    Get.toNamed(AppRoutes.voiceCall,
+      parameters: {
+        "docsId": docsId,
+        "toToken": state.toToken.value,
+        "toName": state.toName.value,
+        "toAvatar": state.toAvatar.value
+      }
+    );
   }
 
   @override

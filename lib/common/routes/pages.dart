@@ -12,6 +12,7 @@ import 'package:flutter_video_chat/pages/frame/sign_in/index.dart';
 import 'package:flutter_video_chat/pages/profile/index.dart';
 import 'package:flutter_video_chat/pages/contact/index.dart';
 import 'package:flutter_video_chat/pages/message/chat/index.dart';
+import 'package:flutter_video_chat/pages/message/voicecall/index.dart';
 
 class AppPages {
   static const initial = AppRoutes.initial;
@@ -47,6 +48,11 @@ class AppPages {
       name: AppRoutes.chat,
       page: () => const ChatPage(),
       binding: ChatBinding()
+    ),
+    GetPage(
+      name: AppRoutes.voiceCall, 
+      page: () => const VoiceCallPage(),
+      binding: VoiceCallBinding()  
     )
   ];
 }

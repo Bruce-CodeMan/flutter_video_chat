@@ -6,15 +6,18 @@ import 'package:flutter_video_chat/common/values/asset.dart';
 
 class IconAction extends StatelessWidget {
   final String iconName;
+  final VoidCallback onPressed;
 
   const IconAction({
     super.key,
+    required this.onPressed,
     required this.iconName
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onPressed,
       child: Container(
         width: 40.w,
         height: 40.w,

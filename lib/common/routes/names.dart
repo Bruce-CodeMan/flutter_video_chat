@@ -5,4 +5,5 @@ class AppRoutes {
   static const profile = '/profile';
   static const contact = '/contact';
   static const chat = "/chat";
+  static const voiceCall = "/voice_call";
 }

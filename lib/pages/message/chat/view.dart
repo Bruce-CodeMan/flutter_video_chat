@@ -154,13 +154,13 @@ class ChatPage extends GetView<ChatController> {
                   right: 20.w,
                   height: 200.h,
                   width: 40.w,
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      IconAction(iconName: "file"),
-                      IconAction(iconName: "photo"),
-                      IconAction(iconName: "call"),
-                      IconAction(iconName: "video"),
+                      IconAction(iconName: "file", onPressed: controller.callAudio),
+                      IconAction(iconName: "photo", onPressed: controller.callAudio),
+                      IconAction(iconName: "call", onPressed: controller.callAudio),
+                      IconAction(iconName: "video", onPressed: controller.callAudio),
                     ],
                   )
               )
