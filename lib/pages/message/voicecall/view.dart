@@ -12,7 +12,6 @@ class VoiceCallPage extends GetView<VoiceCallController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("voiceCall")),
       backgroundColor: AppColors.primaryThirdBackground,
       body: Obx(() => _buildBody())
     );
@@ -94,6 +93,9 @@ class VoiceCallPage extends GetView<VoiceCallController> {
     return Column(
             children: [
               GestureDetector(
+                onTap: controller.state.isJoined.value
+                  ? controller.leaveChannel
+                  : controller.joinChannel,
                 child: Container(
                   padding: EdgeInsets.all(15.w),
                   width: 60.w,
@@ -162,7 +164,7 @@ class VoiceCallPage extends GetView<VoiceCallController> {
     return Stack(
           children: [
             Positioned(
-              top: 10.h,
+              top: 70.h,
               left: 30.w,
               right: 30.w,
               child: Column(

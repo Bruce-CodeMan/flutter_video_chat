@@ -1,11 +1,9 @@
 // Import the core library
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_video_chat/common/apis/apis.dart';
 import 'package:flutter_video_chat/common/routes/names.dart';
-import 'package:flutter_video_chat/common/utils/http.dart';
 import 'package:flutter_video_chat/common/widgets/toast.dart';
 
 // Import the libraries from the external
